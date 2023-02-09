@@ -49,9 +49,9 @@ local function add_folder(dir, table)
 
 end
 
-vim.api.nvim_create_autocmd("BufferNew", Add_file_to_mplab_project())
-
 function Add_file_to_mplab_project()
+
+	print("Entró al funcion")
 
 	if not file_exists("nbproject/configurations.xml") then
 		return
@@ -98,3 +98,5 @@ function Add_file_to_mplab_project()
 	--io.close(f)
 
 end
+
+vim.api.nvim_create_autocmd("BufferNew", {lua = Add_file_to_mplab_project()})
