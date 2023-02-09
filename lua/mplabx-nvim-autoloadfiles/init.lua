@@ -99,7 +99,7 @@ function Add_file_to_mplab_project()
 
 end
 
-vim.api.nvim_create_autocmd("BufferNew", {callback = function()
-																		Add_file_to_mplab_project()
-																	end,
-																})
+vim.api.nvim_create_autocmd("BufferNew",  function()
+															Add_file_to_mplab_project()
+														end,
+									)
