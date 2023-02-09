@@ -101,5 +101,5 @@ end
 
 vim.api.nvim_create_autocmd("BufferNew",  function()
 															Add_file_to_mplab_project()
-														end,
+														end
 									)
