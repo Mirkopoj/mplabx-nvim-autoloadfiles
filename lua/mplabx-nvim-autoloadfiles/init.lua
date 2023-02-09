@@ -100,4 +100,12 @@ function Add_file_to_mplab_project()
 end
 
 --vim.api.nvim_create_autocmd("BufferNew",  function() Add_file_to_mplab_project() end)
-vim.cmd "autocmd BufferNew lua CodeRunner()"
+--vim.cmd "autocmd BufferNew lua CodeRunner()"
+local new_mplab_file = vim.api.nvim_create_augroup('new_mplab_file', {clear = true})
+vim.api.nvim_create_autocmd({"BufEnter", "BufNew"}, {
+  group = "new_mplab_file",
+  pattern = {"*.c", "*.h"},
+  callback = function()
+	  Add_file_to_mplab_project()
+  end,
+})
